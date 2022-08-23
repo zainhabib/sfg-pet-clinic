@@ -18,8 +18,32 @@
     <artifactId>sfg-pet-clinic</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>sfg-pet-clinic</name>
-    <description>Demo project for Spring Boot</description>
+    <description>SFG Pet Clinic Project</description>
     <properties>
-        <java.version>18</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
     </properties>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-release-plugin</artifactId>
+                    <configuration>
+                        <goals>install</goals>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <scm>
+        <developerConnection>scm:git:git@github.com:zainhabib/sfg-pet-clinic.git</developerConnection>
+    </scm>
 </project>
