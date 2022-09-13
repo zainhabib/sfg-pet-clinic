@@ -55,11 +55,22 @@ class OwnerControllerTest {
     }
 
     @Test
+    void listOwnersByIndex() throws Exception {
+        when(ownerService.findAll()).thenReturn(owners);
+
+        mockMvc.perform(MockMvcRequestBuilders.get("/owners/index"))
+                //.andExpect(status().is(200));
+                .andExpect((status().isOk()))
+                .andExpect(view().name("owners/index"))
+                .andExpect(model().attribute("owners", hasSize(2)));
+    }
+
+    @Test
     void findOwners() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/owners/find"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("notimplemented"));
 
-        verify(ownerService);
+        verifyNoInteractions(ownerService);
     }
 }
